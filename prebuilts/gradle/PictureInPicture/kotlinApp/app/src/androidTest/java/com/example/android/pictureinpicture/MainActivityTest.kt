@@ -17,17 +17,17 @@
 package com.example.android.pictureinpicture
 
 import android.content.pm.ActivityInfo
-import android.support.test.InstrumentationRegistry
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.UiController
-import android.support.test.espresso.ViewAction
-import android.support.test.espresso.action.ViewActions.click
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.InstrumentationRegistry
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
 import android.view.View
 import com.example.android.pictureinpicture.widget.MovieView
 import org.hamcrest.Description
@@ -62,7 +62,7 @@ class MainActivityTest {
         rule.runOnUiThread {
             // We are now in Picture-in-Picture mode
             assertTrue(rule.activity.isInPictureInPictureMode)
-            val view = rule.activity.findViewById(R.id.movie) as MovieView
+            val view = rule.activity.findViewById<MovieView>(R.id.movie)
             assertNotNull(view)
             // The video should still be playing
             assertTrue(view.isPlaying)
